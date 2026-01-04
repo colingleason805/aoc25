@@ -55,3 +55,39 @@ pub fn readIn() ![*]i8 {
     }
     return vals[0..];
 }
+
+const Dial = struct {
+    min: i8,
+    max: i8,
+    current: i8,
+
+    fn add(self: *Dial, val: i8) u8 {
+        var count = 0;
+        var depleted:bool = false;
+        var distance:i8 = 0;
+        var positive: bool = val > 0;
+        while(!depleted){
+            if(positive){
+                distance = max - current;
+            }
+            else {
+                distance = current - min;
+            }
+            if (distance >= val){
+                // don't have to worry about sign here since we know there's no overflow
+                self.current = self.current + val;
+                break;
+            }
+            else{
+
+            }
+
+        }
+
+        var new = self.current + val;
+        if (new > self.max) {
+            self.current = self.min + (new - self.max);
+        }
+        else if
+    }
+};
